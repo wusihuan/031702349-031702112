@@ -9,17 +9,13 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="./assets/bootstrap-table.css">
-    <script src="./assets/jquery.js"></script>
-    <script src="./assets/bootstrap/js/bootstrap.js"></script>
     <script src="./assets/bootstrap-table.js"></script>
     <script src="./src/bootstraptable-treeview.js"></script>
-    <script src="./assets/jquery.js"></script>
     <script>
         function creatTree() {
             document.getElementsByClassName("textform")[0].style.display = "none";
-            document.getElementsByClassName("table")[0].style.display = "block";
+            document.getElementById("mytable").style.display = "block";
             var text = document.getElementById('inarea').value;
             var table = text.split(/\n\s*\n/); //分割不同的树
             /*var obj = {
@@ -165,7 +161,7 @@
         <br>
     </div>
 
-    <div class="table" style="display:none;">
+    <div id="mytable">
         <input type="button" id="expandAllTree" value="展开所有" class="btn btn-defaul" />
         <input type="button" id="collapseAllTree" value="折叠所有" class="btn btn-defaul" />
         <table id="tree_table"></table>
@@ -194,6 +190,15 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    #mytable {
+        display: none;
+        top: 100px;
+        margin-top: 100px;
+        padding: 50px;
+        background: #faebd759;
+        border-radius: 30px;
     }
 
     .btn {
