@@ -18,11 +18,6 @@
             document.getElementById("mytable").style.display = "block";
             var text = document.getElementById('inarea').value;
             var table = text.split(/\n\s*\n/); //分割不同的树
-            /*var obj = {
-                id : '',
-                name : '',
-                parentId : '',
-            }类*/
             var objList = [];
             for (i = 0; i < table.length; i++) {
                 var row = table[i].split(/[(\r\n)\r\n]+/); //分割每行
@@ -33,10 +28,10 @@
                 objList.push(obj);
                 for (j = 1; j < row.length; j++) {
                     var obj = new Object();
-                    var gAndD = row[j].split(/：/)[0]; //年级和学位
+                    var kind = row[j].split(/：/)[0]; //年级和学位
                     var stu = row[j].split(/：/)[1].split(/、/); //学生
                     obj.id = String(i) + String(j);
-                    obj.name = gAndD;
+                    obj.name = kind;
                     obj.parentId = String(i);
                     objList.push(obj);
                     for (k = 0; k < stu.length; k++) {
@@ -48,67 +43,7 @@
                     }
                 }
             }
-            var data = objList
-            /*[]
-                                {
-                                    id: '1',
-                                    name: "aa",
-                                    desc: "这是一个描述",
-                                    parentId:null,
-                                },{
-                                    id: '11',
-                                    name: "aa_sub1",
-                                    desc: "这是一个描述_sub1",
-                                    parentId:'1',
-                                },{
-                                    id: '111',
-                                    name: "aa_sub1_sub2",
-                                    desc: "这是一个描述_sub1_sub2" ,
-                                    parentId:'11',
-                                },
-                                {
-                                    id: '2',
-                                    name: "bb",
-                                    desc: "这是一个描述",
-                                    parentId:null,
-                                },
-                                {
-                                    id: '22',
-                                    name: "bb_sub1",
-                                    desc: "这是一个描述_sub1",
-                                    parentId:'2',
-                                },{
-                                    id: '23',
-                                    name: "bb_sub2",
-                                    desc: "这是一个描述_sub2",
-                                    parentId:'2',
-                                },{
-                                    id: '233',
-                                    name: "bb_sub2_sub2",
-                                    desc: "这是一个描述_sub2_sub2",
-                                    parentId:'23',
-                                },{
-                                    id: '2333',
-                                    name: "bb_sub2_sub2_sub2",
-                                    desc: "这是一个描述_sub2_sub2_sub2",
-                                    parentId:'233',
-                                },{
-                                    id: '23333',
-                                    name: "bb_sub2_sub2_sub23",
-                                    desc: "这是一个描述_sub2_sub2_sub2",
-                                    parentId:'233',
-                                },{
-                                    id: '233333',
-                                    name: "bb_sub2_sub2_sub233",
-                                    desc: "这是一个描述_sub2_sub2_sub2",
-                                    parentId:'233',
-                                },{
-                                    id: '24',
-                                    name: "bb_sub3",
-                                    desc: "这是一个描述_sub3",
-                                    parentId:'2',
-                                },
-                            ]*/
+            var data = objList;
             $('#tree_table').bootstrapTable({
                 class: 'table table-hover table-bordered',
                 data: data,
